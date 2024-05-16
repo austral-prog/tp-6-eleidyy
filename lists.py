@@ -49,24 +49,13 @@ sample_list4 = ['Red', 'Green', 'Yellow', 'Black', 'Pink']
 output2 = check_lists(sample_list3, sample_list4)
 print(output2)  # Output: False
 
-def list_of_lists(lists):
-    modified_lists = []
+def list_of_lists(original_list):
     
-    # Modificar la primera lista
-    if len(lists[0]) >= 2:
-        modified_lists.append(lists[0][:2])
-    
-    # Modificar la segunda lista
-    if len(lists[1]) >= 4:
-        modified_lists.append(lists[1][1:4])
-    
-    # Modificar la tercera lista
-    if len(lists[2]) >= 2:
-        modified_lists.append(lists[2][-2:])
-    
-    return modified_lists
+    return [
+        original_list[0][:2],  # First sublist, take first 2 elements
+        original_list[1][1:4],  # Second sublist, take elements from index 1 to 3
+        original_list[2][-2:]  # Third sublist, take last 2 elements
+    ]
 
-# Ejemplo de uso:
 sample_list = [[1, 2, 3], [4, 5, 6, 7, 8], [9, 10, 11, 12]]
-output = list_of_lists(sample_list)
-print(output)  # Output: [[1, 2], [5, 6, 7], [11, 12]]
+print(list_of_lists(sample_list))  # Output: [[1, 2], [5, 6, 7], [11, 12]]
